@@ -11,7 +11,11 @@ class RootLayout():
 		self.backgroundcolor = ""
 	
 	def toString (self):
-		return "root-layout -> width: " + self.width + ", height: " + self.height + ", backgroundcolor: " + self.backgroundcolor
+		cadena = "root-layout"
+		if self.width != "": cadena += "\twidth=" + self.width
+		if self.height != "": cadena += "\theight=" + self.height
+		if self.backgroundcolor != "": cadena += "\tbackgroundcolor=" + self.backgroundcolor
+		return cadena
 		
 class Region():
 	def __init__ (self):
@@ -22,7 +26,13 @@ class Region():
 		self.right = ""
 	
 	def toString (self):
-		return "region -> ide: " + self.ide + ", top: " + self.top + ", bottom: " + self.bottom + ", left: " + self.left + ", right: " + self.right
+		cadena = "region"
+		if self.ide != "": cadena += "\tid=" + self.ide
+		if self.top != "": cadena += "\ttop=" + self.top
+		if self.bottom != "": cadena += "\tbottom=" + self.bottom
+		if self.left != "": cadena += "\tleft=" + self.left
+		if self.right != "": cadena += "\tright=" + self.right
+		return cadena
 		
 class Img():
 	def __init__ (self):
@@ -32,26 +42,37 @@ class Img():
 		self.dur = ""
 	
 	def toString (self):
-		return "img -> src: " + self.src + ", region: " + self.region + ", begin: " + self.begin + ", dur: " + self.dur
+		cadena = "img"
+		if self.src != "": cadena += "\tsrc=" + self.src
+		if self.region != "": cadena += "\tregion=" + self.region
+		if self.begin != "": cadena += "\tbegin=" + self.begin
+		if self.dur != "": cadena += "\tdur=" + self.dur
+		return cadena
 
 class Audio():
 	def __init__ (self):
 		self.src = ""
 		self.begin = ""
 		self.dur = ""
-
+	
 	def toString (self):
-		return "audio -> src: " + self.src + ", begin: " + self.begin + ", dur: " + self.dur
-
-
+		cadena = "audio"
+		if self.src != "": cadena += "\tsrc=" + self.src
+		if self.begin != "": cadena += "\tbegin=" + self.begin
+		if self.dur != "": cadena += "\tdur=" + self.dur
+		return cadena
+		
 class TextStream():
 	def __init__ (self):
 		self.src = ""
 		self.region = ""
 	
 	def toString (self):
-		return "src: " + self.src + ", region: " + self.region
-		
+		cadena = "textstream"
+		if self.src != "": cadena += "\tsrc=" + self.src
+		if self.region != "": cadena += "\tregion=" + self.region
+		return cadena
+			
 class SmallSMILHandler(ContentHandler):
 
     def __init__ (self):
